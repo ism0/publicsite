@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Fetch only over https; never load scripts or styles from elsewhere. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https: wss://testnet.ergo.chat; frame-src 'self' https:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Arctic Express BBS</title>
+  <link rel="stylesheet" href="css/bbs.css">
+  <!-- Ordinary scripts (not modules) so the page also opens straight from disk (file://).
+       Order matters: later files use names defined in earlier ones. -->
+  <script defer src="js/term.js"></script>
+  <script defer src="js/art.js"></script>
+  <script defer src="js/html2text.js"></script>
+  <script defer src="js/net.js"></script>
+  <script defer src="js/pager.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/doors/flagdays.js"></script>
+  <script defer src="js/doors/web.js"></script>
+  <script defer src="js/doors/wiki.js"></script>
+  <script defer src="js/doors/wayback.js"></script>
+  <script defer src="js/doors/chat.js"></script>
+  <script defer src="js/doors/messages.js"></script>
+  <script defer src="js/doors/files.js"></script>
+  <script defer src="js/doors/games.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <div id="crt">
+    <pre id="screen"></pre>
+    <div id="status"></div>
+  </div>
+
+  <!-- Hidden text field: receives the keyboard on both desktop and mobile. -->
+  <input id="kbd" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Näppäimistö">
+
+  <div id="frame" hidden>
+    <div class="bar">
+      <span id="frame-title"></span>
+      <button id="frame-close" type="button">[X] Sulje</button>
+    </div>
+    <iframe id="frame-view" title="Ulkoinen sivu" referrerpolicy="no-referrer"
+      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+  </div>
+
+  <noscript><p class="noscript">NO CARRIER &mdash; tämä BBS tarvitsee JavaScriptin.</p></noscript>
+</body>
+</html>

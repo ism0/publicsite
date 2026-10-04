@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- DOS emulator (js-dos, WebAssembly). Game files come from archive.org's CORS path. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self' https://archive.org https://*.archive.org; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Ovipeli – Arctic Express BBS</title>
+  <link rel="stylesheet" href="css/play.css">
+  <!-- Order matters: js-dos.js creates window.exports, wdosbox.js registers exports.WDOSBOX
+       (so js-dos does not need eval), play.js compiles the WebAssembly part and starts the game. -->
+  <script defer src="vendor/js-dos/js-dos.js"></script>
+  <script defer src="vendor/js-dos/wdosbox.js"></script>
+  <script defer src="js/play.js"></script>
+</head>
+<body>
+  <div id="status">Ladataan...</div>
+  <canvas id="dos" tabindex="0"></canvas>
+</body>
+</html>
